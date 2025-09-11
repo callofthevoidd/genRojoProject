@@ -1,0 +1,12 @@
+{
+  "aliases": {
+    "classes": "src/classes",
+    "modules": "src/modules",
+    "packages": "Packages",
+    "server_modules": "src/server_modules",
+    "server_packages": "ServerPackages",
+    "services": "src/services",
+    "ui": "src/ui"
+  },
+  "languageMode": "nonstrict"
+}

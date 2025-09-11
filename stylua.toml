@@ -1,0 +1,6 @@
+syntax = "Luau"
+column_width = 150
+quote_style = "AutoPreferDouble"
+
+[sort_requires]
+enabled = true

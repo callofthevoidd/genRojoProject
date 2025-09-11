@@ -1,2 +1,17 @@
-node_modules/
+# wally
 Packages/
+wally.lock
+
+# darklua build
+build/
+.darklua.json
+
+# rojo sourcemap
+sourcemap.json
+
+# node
+package-lock.json
+node_modules/
+
+# misc
+*.env

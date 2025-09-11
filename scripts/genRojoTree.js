@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const TOML = require('@iarna/toml');
 
-const BASE_PATH = path.join(__dirname, "../src");
+
+const BASE_PATH = path.join(__dirname, "../build");
 
 const BLACKLISTED_DIRS = [
   toPosix(path.join(BASE_PATH, "ui")),
@@ -42,13 +44,18 @@ function getVirtualPath(filepath) {
     folder: parts.slice(0, -1).map(toPascalCase),
     name,
     file: filename === "init"
-    ? toPosix(path.join("src", ...parts.slice(0, -1)))
-    : toPosix(path.join("src", ...parts)),
+    ? toPosix(path.join("build", ...parts.slice(0, -1)))
+    : toPosix(path.join("build", ...parts)),
   };
 }
 
+const tomlString = fs.readFileSync('./wally.toml', 'utf-8');
+
+const parsed = TOML.parse(tomlString);
+
 const tree = {
-  name: "genrojotree",
+  name: parsed.package.name,
+  emitLegacyScripts: true,
   tree: {
     $className: "DataModel",
 
@@ -60,21 +67,21 @@ const tree = {
         Modules: { $className: "Folder", }
       },
       Packages: { $path: "Packages", },
-      UI: { $path: "src/ui", },
+      UI: { $path: "build/ui", }
     },
 
     ServerScriptService: {
-      Server: { $path: "src/startup/Server.server.luau", },
+      Server: { $path: "build/startup/Server.server.luau", },
       Services: { $className: "Folder", },
       Classes: { $className: "Folder", },
-      Modules: { $className: "Folder", },
+      Modules: { $className: "Folder", }
     },
 
     StarterPlayer: {
       StarterPlayerScripts: {
-        Client: { $path: "src/startup/Client.client.luau", }
+        Client: { $path: "build/startup/Client.client.luau", }
       },
-    },
+    }
   }
 };
 
@@ -125,5 +132,5 @@ walk(BASE_PATH, (filepath) => {
   current[name] = { $path: file };
 });
 
-fs.writeFileSync("default.project.json", JSON.stringify(tree, null, 2));
-console.log("✅ default.project.json generated.");
+fs.writeFileSync("build.project.json", JSON.stringify(tree, null, 2));
+console.log("✅ build.project.json generated.");

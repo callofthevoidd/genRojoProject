@@ -11,35 +11,38 @@
           "AnotherService": {
             "$className": "Folder",
             "AnotherServiceClient": {
-              "$path": "src/services/AnotherService/Client.luau"
+              "$path": "build/services/AnotherService/Client.luau"
             },
             "AnotherServiceUtils": {
-              "$path": "src/services/AnotherService/Utils.luau"
+              "$path": "build/services/AnotherService/Utils.luau"
             }
           },
           "ExampleService": {
             "$className": "Folder",
             "ExampleServiceClient": {
-              "$path": "src/services/ExampleService/Client.luau"
+              "$path": "build/services/ExampleService/Client.luau"
             },
             "ExampleServiceUtils": {
-              "$path": "src/services/ExampleService/Utils.luau"
+              "$path": "build/services/ExampleService/Utils.luau"
             }
           }
         },
         "Classes": {
           "$className": "Folder",
           "Random": {
-            "$path": "src/classes/Random.luau"
+            "$path": "build/classes/Random.luau"
           }
         },
         "Modules": {
-          "$className": "Folder"
+          "$className": "Folder",
+          "RandomModule": {
+            "$path": "build/modules/RandomModule.luau"
+          }
         },
         "Server_modules": {
           "$className": "Folder",
           "RandomModule": {
-            "$path": "src/server_modules/RandomModule.luau"
+            "$path": "build/server_modules/RandomModule.luau"
           }
         }
       },
@@ -47,25 +50,25 @@
         "$path": "Packages"
       },
       "UI": {
-        "$path": "src/ui"
+        "$path": "build/ui"
       }
     },
     "ServerScriptService": {
       "Server": {
-        "$path": "src/startup/Server.server.luau"
+        "$path": "build/startup/Server.server.luau"
       },
       "Services": {
         "$className": "Folder",
         "AnotherService": {
           "$className": "Folder",
           "AnotherServiceServer": {
-            "$path": "src/services/AnotherService/Server.luau"
+            "$path": "build/services/AnotherService/Server.luau"
           }
         },
         "ExampleService": {
           "$className": "Folder",
           "ExampleServiceServer": {
-            "$path": "src/services/ExampleService/Server.luau"
+            "$path": "build/services/ExampleService/Server.luau"
           }
         }
       },
@@ -79,7 +82,7 @@
     "StarterPlayer": {
       "StarterPlayerScripts": {
         "Client": {
-          "$path": "src/startup/Client.client.luau"
+          "$path": "build/startup/Client.client.luau"
         }
       }
     }

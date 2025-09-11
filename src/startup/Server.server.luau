@@ -1,5 +1,3 @@
-local ServerScriptService = game:GetService("ServerScriptService")
-
-local ExampleServiceServer = require(ServerScriptService.Services.ExampleService.ExampleServiceServer)
+local ExampleServiceServer = require("@services/ExampleService/Server")
 
 ExampleServiceServer:init()
