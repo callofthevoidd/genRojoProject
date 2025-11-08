@@ -35,12 +35,6 @@
         },
         "Modules": {
           "$className": "Folder"
-        },
-        "Server_modules": {
-          "$className": "Folder",
-          "RandomModule": {
-            "$path": "src/server_modules/RandomModule.luau"
-          }
         }
       },
       "Packages": {
@@ -53,6 +47,9 @@
     "ServerScriptService": {
       "Server": {
         "$path": "src/startup/Server.server.luau"
+      },
+      "ServerPackages": {
+        "$path": "ServerPackages"
       },
       "Services": {
         "$className": "Folder",

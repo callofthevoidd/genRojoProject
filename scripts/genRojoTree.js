@@ -72,6 +72,7 @@ const tree = {
 
     ServerScriptService: {
       Server: { $path: "build/startup/Server.server.luau", },
+      ServerPackages: { $path: "ServerPackages" },
       Services: { $className: "Folder", },
       Classes: { $className: "Folder", },
       Modules: { $className: "Folder", }

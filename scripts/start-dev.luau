@@ -8,6 +8,10 @@ process.exec("rokit", { "install" }, { stdio = "forward" })
 
 process.exec("wally", { "install" }, { stdio = "forward" })
 
+if not fs.isDir("./ServerPackages") then
+	fs.writeDir("./ServerPackages")
+end
+
 print("Clearing old build")
 
 if fs.isDir("./build") then
