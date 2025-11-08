@@ -1,4 +1,3 @@
--- This file contains the aliases for the RAFE framework. It is used to simplify the import paths in the codebase.
 -- Edit this to change the aliases in both the darklua and vscode config file.
 return {
 	["ui"] = "src/ui",

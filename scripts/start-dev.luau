@@ -4,7 +4,7 @@ local task = require("@lune/task") :: any
 
 print("Installing packages")
 
-process.spawn("rokit", { "install" }, { stdio = "forward" })
+process.create("rokit", { "install" }, { stdio = "forward" })
 
 print("Clearing old build")
 
@@ -14,19 +14,19 @@ end
 
 print("Building darklua config")
 
-process.spawn("lune", { "run", "scripts/darkluaconfig" }, { stdio = "forward" })
+process.create("lune", { "run", "scripts/darkluaconfig" }, { stdio = "forward" })
 
 print("Building vscode aliases")
 
-process.spawn("lune", { "run", "scripts/alias-builder" }, { stdio = "forward" })
+process.create("lune", { "run", "scripts/alias-builder" }, { stdio = "forward" })
 
 print("Starting darklua watch")
 
 -- get operating system, if mac then run dev.bash, otherwise run below line
 if process.os == "macos" then
-	task.spawn(process.spawn, "./dev.bash", {}, { stdio = "forward" })
+	task.spawn(process.create, "./dev.bash", {}, { stdio = "forward" })
 else
-	task.spawn(process.spawn, "./dev.bat", {}, { stdio = "forward" })
+	task.spawn(process.create, "./dev.bat", {}, { stdio = "forward" })
 end
 
 print("Starting server")
@@ -39,7 +39,7 @@ task.wait()
 
 print("Starting rojo")
 
-process.spawn("rojo", {
+process.create("rojo", {
 	"serve",
 	"build.project.json",
 }, { stdio = "forward" })

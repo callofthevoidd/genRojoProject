@@ -11,12 +11,7 @@ local DEBUG_PROFILING = false
 local HAS_COMMENT_FILE = false
 
 -- Globals injected into _G
-local MACROS = {
-	NET_DEV = false,
-
-	MACRO_BANK = true, -- Bank enabled
-	MACRO_TESTING = false, -- Integration testing
-}
+local MACROS = {}
 
 local RULES = {
 	"compute_expression",
@@ -44,7 +39,7 @@ local fs = require("@lune/fs") :: any
 local process = require("@lune/process") :: any
 
 -- Put git hash in macros so we can see it in-code
-local GitHash = process.spawn("git", { "log", "-1", "--format=%H" })
+local GitHash = process.create("git", { "log", "-1", "--format=%H" })
 MACROS["GIT_HASH"] = GitHash.stdout:sub(1, 8)
 
 local function Build()
