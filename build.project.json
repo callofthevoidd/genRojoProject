@@ -1,5 +1,5 @@
 {
-  "name": "ivadsiuls/genRojoProject",
+  "name": "ivadsiuls/genrojoproject",
   "emitLegacyScripts": true,
   "tree": {
     "$className": "DataModel",
@@ -34,10 +34,7 @@
           }
         },
         "Modules": {
-          "$className": "Folder",
-          "RandomModule": {
-            "$path": "build/modules/RandomModule.luau"
-          }
+          "$className": "Folder"
         },
         "Server_modules": {
           "$className": "Folder",

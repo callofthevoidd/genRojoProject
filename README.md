@@ -2,6 +2,13 @@
 
 fork of `genRojoTree` made to suit my needs.
 
+## Installation
+
+1.  Clone this repository to a directory of your choice
+2.  Run "npm i" and "rokit install" to install the required packages
+3.  To start development, run "lune run scripts/start-dev", this starts everything you need.
+4.  Connect to rojo in studio
+
 ## Differences:
 
 - Darklua paths, (ex. require("@services/ExampleService/Server"))

@@ -39,7 +39,7 @@ local fs = require("@lune/fs") :: any
 local process = require("@lune/process") :: any
 
 -- Put git hash in macros so we can see it in-code
-local GitHash = process.create("git", { "log", "-1", "--format=%H" })
+local GitHash = process.exec("git", { "log", "-1", "--format=%H" })
 MACROS["GIT_HASH"] = GitHash.stdout:sub(1, 8)
 
 local function Build()

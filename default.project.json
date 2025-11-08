@@ -1,5 +1,5 @@
 {
-  "name": "ivadsiuls/genRojoProject",
+  "name": "ivadsiuls/genrojoproject",
   "emitLegacyScripts": true,
   "tree": {
     "$className": "DataModel",

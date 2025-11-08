@@ -1,10 +1,12 @@
-local fs = require("@lune/fs") :: any
-local process = require("@lune/process") :: any
-local task = require("@lune/task") :: any
+local fs = require("@lune/fs")
+local process = require("@lune/process")
+local task = require("@lune/task")
 
 print("Installing packages")
 
-process.create("rokit", { "install" }, { stdio = "forward" })
+process.exec("rokit", { "install" }, { stdio = "forward" })
+
+process.exec("wally", { "install" }, { stdio = "forward" })
 
 print("Clearing old build")
 
@@ -14,32 +16,32 @@ end
 
 print("Building darklua config")
 
-process.create("lune", { "run", "scripts/darkluaconfig" }, { stdio = "forward" })
+process.exec("lune", { "run", "scripts/darkluaconfig" }, { stdio = "forward" })
 
 print("Building vscode aliases")
 
-process.create("lune", { "run", "scripts/alias-builder" }, { stdio = "forward" })
+process.exec("lune", { "run", "scripts/alias-builder" }, { stdio = "forward" })
 
 print("Starting darklua watch")
 
 -- get operating system, if mac then run dev.bash, otherwise run below line
 if process.os == "macos" then
-	task.spawn(process.create, "./dev.bash", {}, { stdio = "forward" })
+	task.spawn(process.exec, "./dev.bash", {}, { stdio = "forward" })
 else
-	task.spawn(process.create, "./dev.bat", {}, { stdio = "forward" })
+	task.spawn(process.exec, "./dev.bat", {}, { stdio = "forward" })
 end
 
 print("Starting server")
 
 repeat
-	task.wait()
+	task.wait(1)
 until fs.isDir("./build") and fs.isDir("./build/services") and fs.isDir("./build/startup")
 
-task.wait()
+task.wait(1)
 
 print("Starting rojo")
 
-process.create("rojo", {
+process.exec("rojo", {
 	"serve",
 	"build.project.json",
 }, { stdio = "forward" })
